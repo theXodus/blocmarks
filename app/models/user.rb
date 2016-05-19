@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   validate :validate_username
+  has_many :topics
 
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup

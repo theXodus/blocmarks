@@ -1,0 +1,13 @@
+<h1><%= @topic.title %></h1> <h4>created by <%= @topic.user.username %></h4>
+
+<% if @topic.user == current_user  %>
+  <%= link_to "Delete", topic_path(@topic), method: :delete, class: "btn btn-danger btn-sm" %>
+  <%= link_to 'Edit Topic', edit_topic_path, class: 'btn btn-info btn-sm' %>
+<% end %>
+<p>
+  <% @bookmarks.each do |bookmark| %>
+    <p>
+      <%= bookmark.url %>
+    </p>
+  <% end %>
+</p>
