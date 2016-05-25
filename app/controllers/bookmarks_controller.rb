@@ -7,7 +7,7 @@ class BookmarksController < ApplicationController
   end
 
   def new
-    @bookmark = @topic.bookmarks.new
+    @bookmark = Bookmark.new
   end
 
   def create
