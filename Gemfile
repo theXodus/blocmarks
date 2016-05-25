@@ -10,6 +10,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'devise'
+gem 'valid_url' # for validating that URLs are valid in the bookmark model
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :development, :test do
@@ -17,6 +18,7 @@ group :development, :test do
   gem 'byebug'
   gem 'factory_girl_rails'
   gem 'shoulda'
+  gem 'faker'
 end
 
 group :development do

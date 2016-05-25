@@ -1,10 +1,12 @@
 class TopicsController < ApplicationController
+
+  before_action :find_topic, except: [:index, :new, :create]
+
   def index
     @topics = Topic.all
   end
 
   def show
-    @topic = find_topic
     @bookmarks = @topic.bookmarks.all
   end
 
@@ -25,12 +27,9 @@ class TopicsController < ApplicationController
   end
 
   def edit
-    @topic = find_topic
   end
 
   def update
-    @topic = find_topic
-
     if @topic.update(topic_params)
       redirect_to(@topic)
     else
@@ -39,7 +38,6 @@ class TopicsController < ApplicationController
   end
 
   def destroy
-    @topic = find_topic
     if @topic.destroy
       redirect_to root_path
     else
@@ -50,7 +48,7 @@ class TopicsController < ApplicationController
   private
 
   def find_topic
-    Topic.find(params[:id])
+    @topic = Topic.find(params[:id])
   end
 
   def topic_params
