@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :bookmark do
-    url "MyString"
+    url "http://espn.com"
     topic
   end
 end
