@@ -3,5 +3,5 @@
   <%= link_to 'Edit Bookmark', edit_topic_bookmark_path(@topic, @bookmark), class: 'btn btn-info btn-sm' %>
   <%= link_to "Delete", topic_bookmark_path(@topic, @bookmark), method: :delete, class: "btn btn-danger btn-sm" %>
 <% end %>
-
+<%= render partial: 'likes/like', locals: { bookmark: @bookmark } %>
 <%= link_to 'Back', topic_path(@topic), class: 'btn btn-info btn-sm' %>

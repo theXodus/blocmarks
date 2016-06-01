@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   validate :validate_username
   has_many :topics
   has_many :bookmarks
+  has_many :likes, dependent: :destroy
 
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
@@ -17,6 +18,10 @@ class User < ActiveRecord::Base
       conditions[:email].downcase! if conditions[:email]
       where(conditions.to_hash).first
     end
+  end
+
+  def liked(bookmark)
+    likes.where(bookmark_id: bookmark.id).first
   end
 
   private

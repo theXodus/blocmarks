@@ -1,6 +1,7 @@
 class Bookmark < ActiveRecord::Base
   belongs_to :user
   belongs_to :topic
+  has_many :likes, dependent: :destroy
   before_validation :smart_add_url_protocol
   validates :url, url: true
 
