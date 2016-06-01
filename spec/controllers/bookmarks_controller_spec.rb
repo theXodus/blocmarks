@@ -1,9 +1,10 @@
 require 'rails_helper'
+require 'support/controller_macros.rb'
 
 RSpec.describe BookmarksController, type: :controller do
-
+  let(:user) {FactoryGirl.create(:user)}
   let(:topic) {FactoryGirl.create(:topic)}
-  let(:bookmark) {FactoryGirl.create(:bookmark, topic: topic)}
+  let(:bookmark) {FactoryGirl.create(:bookmark, topic: topic, user: user)}
 
   describe "#show" do
     it "returns http success" do
@@ -38,6 +39,23 @@ RSpec.describe BookmarksController, type: :controller do
     it "returns http success" do
       get :edit, topic_id: topic.id, id: bookmark.id
       expect(response).to have_http_status(:success)
+    end
+  end
+
+  describe "#update" do
+    it "should only allow update for bookmark user" do
+      user2 = FactoryGirl.create :user
+      sign_in user2
+      expect(post :update, topic_id: topic.id, id: bookmark.id).to have_http_status(302)
+    end
+  end
+
+  describe "#destroy" do
+    it "should only allow delete for bookmark user" do
+      bookmark_count = Bookmark.count
+      user2 = FactoryGirl.create :user
+      sign_in user2
+      expect(delete :destroy, topic_id: topic.id, id: bookmark.id).to have_http_status(302)
     end
   end
 

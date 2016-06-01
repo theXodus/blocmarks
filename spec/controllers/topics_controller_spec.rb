@@ -41,7 +41,7 @@ RSpec.describe TopicsController, type: :controller do
   describe "POST #create" do
     it "creates topic" do
       topic_params = FactoryGirl.attributes_for(:topic)
-      expect { post :create, :topic => topic_params }.to change(Topic, :count).by(1)
+      expect { post :create, topic: topic_params }.to change(Topic, :count).by(1)
     end
   end
 

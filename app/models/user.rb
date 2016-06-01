@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
 
   validate :validate_username
   has_many :topics
+  has_many :bookmarks
 
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
