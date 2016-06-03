@@ -1,5 +1,5 @@
 class LikesController < ApplicationController
-  before_action :find_bookmark, except: [:o]
+  before_action :find_bookmark, except: [:index]
 
   def index
     @likes = current_user.likes.all

@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   end
 
   devise_for :users
+  resources :users, only: [:show]
 
   authenticated :user do
     root to: "topics#index", as: "authenticated_root"
