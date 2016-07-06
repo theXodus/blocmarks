@@ -48,7 +48,7 @@ class TopicsController < ApplicationController
   private
 
   def find_topic
-    @topic = Topic.find(params[:id])
+    @topic = Topic.friendly.find(params[:id])
   end
 
   def topic_params

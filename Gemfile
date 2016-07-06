@@ -12,6 +12,7 @@ gem 'devise'
 gem 'pundit'
 gem 'valid_url' # for validating that URLs are valid in the bookmark model
 gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'friendly_id'
 
 group :production do
   gem 'pg'
