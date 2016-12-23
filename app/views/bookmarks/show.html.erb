@@ -1,10 +1,9 @@
-<div class="dib ph3">
+<div class="fl w-30 pa2">
   <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=Website%20Preview&w=500&h=350" alt="placeholder" class="dib">
-
 </div>
 
-<div class="dib absolute ph4">
-  <h1 class=""><%= link_to @bookmark.url, @bookmark.url %></h1>
+<div class="fl w-70 pa2 ">
+  <h1 class="truncate"><%= link_to @bookmark.url, @bookmark.url %></h1>
   <% if policy(@bookmark).update? %>
     <%= link_to 'Edit Bookmark', edit_topic_bookmark_path(@topic, @bookmark), class: 'b ph2 pv1 input-reset ba b--light-blue light-blue bg-transparent grow pointer f6 link' %>
     <%= link_to "Delete", topic_bookmark_path(@topic, @bookmark), method: :delete, class: "b ph2 pv1 input-reset ba b--dark-red dark-red bg-transparent grow pointer f6 link" %>

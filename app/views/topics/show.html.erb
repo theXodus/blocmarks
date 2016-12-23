@@ -1,10 +1,10 @@
-<div class="center mw8">
+<div class="center ph5">
   <h1 class="dib"><%= @topic.title %></h1>
   <span class="dib b-black-60">created by <%= @topic.user.username %></span>
-  <div class="db">
+  <div class="db pv3">
     <% if @topic.user == current_user  %>
-      <%= link_to "Delete", topic_path(@topic), method: :delete, class: "b ph2 pv1 input-reset ba b--dark-red dark-red bg-transparent grow pointer f6 link" %>
-      <%= link_to 'Edit Topic', edit_topic_path, class: 'b ph2 pv1 input-reset ba b--light-blue light-blue bg-transparent grow pointer f6 link' %>
+      <%= link_to "Delete", topic_path(@topic), method: :delete, class: "b ph3 pv2 input-reset ba b--dark-red dark-red bg-transparent grow pointer f6 link" %>
+      <%= link_to 'Edit Topic', edit_topic_path, class: 'b ph3 pv2 input-reset ba b--light-blue light-blue bg-transparent grow pointer f6 link' %>
     <% end %>
     <%= link_to 'Add Bookmark', new_topic_bookmark_path(@topic, @bookmark), class: 'b ph3 pv2 input-reset ba b--dark-green dark-green bg-transparent grow pointer f6 link' %>
 
@@ -13,13 +13,13 @@
 
   <ul class="list f6 pl0 mt3 mb0">
     <% @bookmarks.each do |bookmark| %>
-    <li class="pv2">
-      <h4 class="dib"><%= link_to bookmark.url, topic_bookmark_path(@topic, bookmark), class: 'link f3' %> </h4>
+    <li class="pv2 bb b--black-05">
+      <h4 class="mw-100 truncate"><%= link_to bookmark.url, topic_bookmark_path(@topic, bookmark), class: 'link f3' %> </h4>
       <% if policy(bookmark).update? %>
         <%= link_to 'Edit Bookmark', edit_topic_bookmark_path(@topic, bookmark), class: 'b ph2 pv1 input-reset ba b--light-blue light-blue bg-transparent grow pointer f6 link dib' %>
         <%= link_to "Delete", topic_bookmark_path(@topic, bookmark), method: :delete, class: "b ph2 pv1 input-reset ba b--dark-red dark-red bg-transparent grow pointer f6 link dib" %>
       <% end %>
-      <span class="dib black-60">belongs to
+      <span class="black-60">submitted by
         <% if current_user == bookmark.user %>
           YOU!
         <% else %>

@@ -22,7 +22,7 @@ class LikesController < ApplicationController
     authorize like
 
     if like.destroy
-      redirect_to [@bookmark.topic,@bookmark]
+      redirect_to :back
     else
       flash[:alert] = "Unable to unlike. Please try again."
       redirect_to [@bookmark.topic,@bookmark]

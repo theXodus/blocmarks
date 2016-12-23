@@ -1,2 +1,15 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<article class="mw7 center ph3 ph5-ns tc br2 pv5 bg-washed-blue navy mb5">
+  <h1 class="fw6 f3 f2-ns lh-title mt0 mb3">
+    Welcome to Blocmarks
+  </h1>
+  <h2 class="fw2 f4 lh-copy mt0 mb3">
+    A social bookmarking website.
+  </h2>
+  <p class="fw1 f5 mt0 mb3">
+    This site was made with Rails and Tachyons. Visit <a href="jaredprice.net">JaredPrice.net</a> if you would like to get in contact with me.
+  </p>
+  <div>
+    <%= link_to "Sign Up", new_user_registration_path, class:'f6 br-pill bg-navy no-underline washed-blue ba b--navy grow pv2 ph3 dib mr3'  %>
+    <%= link_to "Sign In", new_user_session_path, class:'f6 br-pill navy no-underline ba grow pv2 ph3 dib'  %>
+  </div>
+</article>
