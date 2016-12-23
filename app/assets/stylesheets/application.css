@@ -11,5 +11,8 @@
  * file per style scope.
  *
  */
- @import "bootstrap-sprockets";
- @import "bootstrap";
+ *= require tachyons-min
+
+.bg-color-nav {
+  background-color: #6A8EAE;
+}

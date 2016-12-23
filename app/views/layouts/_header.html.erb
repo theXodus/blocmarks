@@ -1,8 +1,17 @@
-<% if user_signed_in? %>
-  <%= link_to "Home", authenticated_root_path %>
-  Signed in as: <strong><%= link_to current_user.username, user_path(current_user) %></strong> |
-  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> - <%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-<% else %>
-  <%= link_to "Sign Up", new_user_registration_path, :class => 'navbar-link'  %> -
-  <%= link_to "Sign In", new_user_session_path, :class => 'navbar-link'  %>
-<% end %>
+<div class="bg-navy white h3 mw-100 nested-list-reset ul">
+  <div class="ph3 pt3">
+    <%= link_to "BlocMarks", root_path, class:'f2 di link white' %>
+  <% if user_signed_in? %>
+    <ul class="fr dt">
+        <li class="dtc"><i class="fa fa-home" aria-hidden="true"></i><%= link_to "Home |", authenticated_root_path, class:'white pa1 link' %></li>
+        <li class="dtc">Signed in as: <strong><%= link_to current_user.username, user_path(current_user), class:'white pa1 link' %></strong> | </li>
+        <li class="dtc"><i class="fa fa-user fa-fw" aria-hidden="true"></i><%= link_to 'Edit Profile', edit_user_registration_path, class:'white pa1 link' %> | <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class:'white pa1 link'  %></li>
+    </ul>
+  <% else %>
+    <ul class="fr">
+        <li class="dib"><%= link_to "Sign Up", new_user_registration_path, class:'link white'  %> -</li>
+        <li class="dib"><%= link_to "Sign In", new_user_session_path, class:'link white'  %></li>
+    </ul>
+  <% end %>
+  </div>
+</div>

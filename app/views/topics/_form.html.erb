@@ -1,5 +1,8 @@
-<%= form_for topic do |f| %>
-   <%= f.label :title %>
-   <%= f.text_field :title %>
-   <%= f.submit "Save" %>
-<% end %>
+<div class="center measure">
+  <h2 class="f1">New Topic</h2>
+  <%= form_for topic do |f| %>
+     <%= f.label :title %>
+     <%= f.text_field :title, class:'b pa2 input-reset ba bg-transparent hover-bg-navy hover-white w-100' %>
+     <%= f.submit "Save", class:'b ph3 pv2 input-reset ba b--dark-green green link bg-transparent grow pointer f6 dib' %>
+  <% end %>
+</div>

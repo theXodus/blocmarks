@@ -1,8 +1,13 @@
-<h1>All Topics</h1>
-<%= link_to 'New Topic', new_topic_path, :class => 'btn btn-success'  %>
 
-<% @topics.each do |topic| %>
-  <h3>
-    <%= link_to topic.title, topic_path(topic) %>
-  </h3>
-<% end %>
+<div>
+  <h1 class="f2 pa3 dib">All Topics</h1>
+  <%= link_to 'New Topic', new_topic_path, :class => 'b ph3 pv2 input-reset ba b--dark-green dark-green link bg-transparent grow pointer f6 dib'  %>
+
+  <ul class="list pl0">
+    <% @topics.each do |topic| %>
+      <li class="pa3 pa4-ns bb b--black-10">
+        <%= link_to topic.title, topic_path(topic), class:'db f3 mb1' %>
+      </li>
+    <% end %>
+  </ul>
+</div>

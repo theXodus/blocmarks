@@ -1,20 +1,32 @@
-<h1><%= @topic.title %></h1>
-<h4>created by <%= @topic.user.username %></h4>
-
-<% if @topic.user == current_user  %>
-  <%= link_to "Delete", topic_path(@topic), method: :delete, class: "btn btn-danger btn-sm" %>
-  <%= link_to 'Edit Topic', edit_topic_path, class: 'btn btn-info btn-sm' %>
-<% end %>
-<%= link_to 'Add Bookmark', new_topic_bookmark_path(@topic, @bookmark), class: 'btn btn-success btn-sm' %>
-
-
-<p>
-  <% @bookmarks.each do |bookmark| %>
-    <h4> <%= link_to bookmark.url, topic_bookmark_path(@topic, bookmark) %> </h4>
-    <% if policy(bookmark).update? %>
-      <%= link_to 'Edit Bookmark', edit_topic_bookmark_path(@topic, bookmark), class: 'btn btn-info btn-sm' %>
-      <%= link_to "Delete", topic_bookmark_path(@topic, bookmark), method: :delete, class: "btn btn-danger btn-sm" %>
+<div class="center mw8">
+  <h1 class="dib"><%= @topic.title %></h1>
+  <span class="dib b-black-60">created by <%= @topic.user.username %></span>
+  <div class="db">
+    <% if @topic.user == current_user  %>
+      <%= link_to "Delete", topic_path(@topic), method: :delete, class: "b ph2 pv1 input-reset ba b--dark-red dark-red bg-transparent grow pointer f6 link" %>
+      <%= link_to 'Edit Topic', edit_topic_path, class: 'b ph2 pv1 input-reset ba b--light-blue light-blue bg-transparent grow pointer f6 link' %>
     <% end %>
-    bookmark belongs to <%= bookmark.user.username %>
-  <% end %>
-</p>
+    <%= link_to 'Add Bookmark', new_topic_bookmark_path(@topic, @bookmark), class: 'b ph3 pv2 input-reset ba b--dark-green dark-green bg-transparent grow pointer f6 link' %>
+
+  </div>
+
+
+  <ul class="list f6 pl0 mt3 mb0">
+    <% @bookmarks.each do |bookmark| %>
+    <li class="pv2">
+      <h4 class="dib"><%= link_to bookmark.url, topic_bookmark_path(@topic, bookmark), class: 'link f3' %> </h4>
+      <% if policy(bookmark).update? %>
+        <%= link_to 'Edit Bookmark', edit_topic_bookmark_path(@topic, bookmark), class: 'b ph2 pv1 input-reset ba b--light-blue light-blue bg-transparent grow pointer f6 link dib' %>
+        <%= link_to "Delete", topic_bookmark_path(@topic, bookmark), method: :delete, class: "b ph2 pv1 input-reset ba b--dark-red dark-red bg-transparent grow pointer f6 link dib" %>
+      <% end %>
+      <span class="dib black-60">belongs to
+        <% if current_user == bookmark.user %>
+          YOU!
+        <% else %>
+          <%= bookmark.user.username %>
+        <% end %>
+      </span>
+    </li>
+    <% end %>
+  </ul>
+</div>

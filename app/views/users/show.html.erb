@@ -1,13 +1,19 @@
-<h1>MyBookmarks</h1>
+<div class="mw8 center">
+  <div class="fl w-50 pa2">
+    <h1>MyBookmarks</h1>
 
-  <% @user_bookmarks.each do |bookmark| %>
-    <p><%= bookmark.url %></p>
-  <% end %>
+    <% @user_bookmarks.each do |bookmark| %>
+      <p><%= bookmark.url %></p>
+    <% end %>
+  </div>
+  <div class="fl w-50 pa2">
+    <h1>Liked Bookmarks</h1>
 
-
-<h1>Liked Bookmarks</h1>
-
-  <% @liked_bookmarks.each do |like| %>
-    <p><%= like.url %></p>
-    <%= render partial: 'likes/like', locals: { bookmark: like } %>
-  <% end %>
+    <% @liked_bookmarks.each do |like| %>
+      <ul class="list">
+        <li><p class='dib'><%= like.url %></p>
+        <%= render partial: 'likes/like', locals: { bookmark: like } %></li>
+      </ul>
+    <% end %>
+  </div>
+</div>

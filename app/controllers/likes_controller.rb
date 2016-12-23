@@ -10,7 +10,6 @@ class LikesController < ApplicationController
     authorize like
 
     if like.save
-      flash[:notice] = "Liked!"
       redirect_to [@bookmark.topic,@bookmark]
     else
       flash[:alert] = "Unable to like. Please try again."
@@ -23,7 +22,6 @@ class LikesController < ApplicationController
     authorize like
 
     if like.destroy
-      flash[:notice] = "Unliked!"
       redirect_to [@bookmark.topic,@bookmark]
     else
       flash[:alert] = "Unable to unlike. Please try again."
