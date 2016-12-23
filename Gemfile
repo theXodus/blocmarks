@@ -11,6 +11,7 @@ gem 'pundit'
 gem 'valid_url' # for validating that URLs are valid in the bookmark model
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'tachyons-rails', '~> 4.6'
+gem 'faker'
 
 group :production do
   gem 'pg'
@@ -21,7 +22,6 @@ group :development, :test do
   gem 'byebug'
   gem 'factory_girl_rails'
   gem 'shoulda'
-  gem 'faker'
 end
 
 group :development do
